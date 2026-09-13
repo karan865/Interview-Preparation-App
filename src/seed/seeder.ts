@@ -197,8 +197,12 @@ export const runSeeder = async (options: SeederOptions | boolean = true) => {
     console.log(`==================================================\n`);
 
     // 6.5. Seed / update curated Interview MCQs
-    const mcqStats = await seedOrUpdateMCQs();
-    console.log(`[Seeder] Seeded/Updated ${mcqStats.created + mcqStats.updated} MCQs (${mcqStats.created} created, ${mcqStats.updated} updated).`);
+    try {
+      const mcqStats = await seedOrUpdateMCQs();
+      console.log(`[Seeder] Seeded/Updated ${mcqStats.created + mcqStats.updated} MCQs (${mcqStats.created} created, ${mcqStats.updated} updated).`);
+    } catch (mcqErr: any) {
+      console.warn(`[Seeder] Warning during MCQ seeding (non-fatal): ${mcqErr.message}`);
+    }
 
     if (opts.reset) {
       console.log(`[Seeder] Reset successfully executed. Deleted ${deletedTechCount} techs, ${deletedTopicCount} topics, ${deletedQuestionCount} questions.`);
