@@ -1,0 +1,305 @@
+### ===================================================================
+### Developer Interview Revision API - HTTP Client Examples
+### ===================================================================
+@baseUrl = http://localhost:5000/api
+@authToken = {{loginUser.response.body.data.token}}
+@adminToken = {{loginAdmin.response.body.data.token}}
+
+### 1. Health Check
+GET {{baseUrl}}/health
+
+### ===================================================================
+### AUTHENTICATION
+### ===================================================================
+
+### Register New User
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Alex User",
+  "email": "user@example.com",
+  "password": "UserPassword123!"
+}
+
+### #name loginUser
+### Login Test User
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "UserPassword123!"
+}
+
+### #name loginAdmin
+### Login Admin User
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "AdminPassword123!"
+}
+
+### Get Current User Profile (Requires Auth)
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{authToken}}
+
+### Update User Preferences
+PUT {{baseUrl}}/auth/preferences
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "selectedPreparationLevel": "intermediate"
+}
+
+### ===================================================================
+### METADATA: Technologies, Topics, Preparation Levels
+### ===================================================================
+
+### Get All Active Technologies
+GET {{baseUrl}}/technologies
+
+### Filter Technologies by Category (frontend | backend | database | devops)
+GET {{baseUrl}}/technologies?category=frontend
+
+### Get Technology by Slug or ID
+GET {{baseUrl}}/technologies/react
+
+### Get All Topics
+GET {{baseUrl}}/topics
+
+### Get Topics for Specific Technology
+GET {{baseUrl}}/topics?technology=react
+
+### Get Topic by Slug
+GET {{baseUrl}}/topics/hooks
+
+### Get All Preparation Levels
+GET {{baseUrl}}/preparation-levels
+
+### ===================================================================
+### QUESTIONS REVISION & BROWSING
+### ===================================================================
+
+### List Published Questions (Paginated)
+GET {{baseUrl}}/questions?page=1&limit=10
+Authorization: Bearer {{authToken}}
+
+### Filter Questions by Technology and Level
+GET {{baseUrl}}/questions?technology=react&level=intermediate
+Authorization: Bearer {{authToken}}
+
+### Filter by Topic and Question Type
+GET {{baseUrl}}/questions?technology=react&topic=hooks&questionType=Comparison
+Authorization: Bearer {{authToken}}
+
+### Filter by Important Questions
+GET {{baseUrl}}/questions?technology=javascript&isImportant=true
+Authorization: Bearer {{authToken}}
+
+### Get Single Question by ID (Enriched with user's progress if authenticated)
+GET {{baseUrl}}/questions/{{sampleQuestionId}}
+Authorization: Bearer {{authToken}}
+
+### ===================================================================
+### USER PROGRESS & BOOKMARKING
+### ===================================================================
+
+### Mark Question as Weak
+POST {{baseUrl}}/progress/{{sampleQuestionId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "status": "weak"
+}
+
+### Mark Question as Known
+POST {{baseUrl}}/progress/{{sampleQuestionId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "status": "known"
+}
+
+### Mark Question for Review
+POST {{baseUrl}}/progress/{{sampleQuestionId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "status": "review"
+}
+
+### Save / Bookmark Question
+POST {{baseUrl}}/questions/{{sampleQuestionId}}/save
+Authorization: Bearer {{authToken}}
+
+### Unsave Question
+DELETE {{baseUrl}}/questions/{{sampleQuestionId}}/save
+Authorization: Bearer {{authToken}}
+
+### Get All Saved Questions
+GET {{baseUrl}}/questions/saved?page=1&limit=10
+Authorization: Bearer {{authToken}}
+
+### Reset Question Progress
+DELETE {{baseUrl}}/progress/{{sampleQuestionId}}
+Authorization: Bearer {{authToken}}
+
+### ===================================================================
+### REVISION SUITE
+### ===================================================================
+
+### 1. Revise Weak Questions
+GET {{baseUrl}}/revision/weak?technology=react&limit=10
+Authorization: Bearer {{authToken}}
+
+### 2. Quick Revision (Deterministic 40% Weak, 30% Review, 20% Important, 10% Unpracticed)
+GET {{baseUrl}}/revision/quick?technology=react&preparationLevel=intermediate&limit=10
+Authorization: Bearer {{authToken}}
+
+### 3. Rapid "Interview Tomorrow" Prep (Prioritized: Weak -> Review -> Important -> Unpracticed)
+GET {{baseUrl}}/revision/interview-prep?technologies=react,nodejs,mongodb&preparationLevel=intermediate&limit=15
+Authorization: Bearer {{authToken}}
+
+### ===================================================================
+### SEARCH
+### ===================================================================
+
+### Full-Text Search across Questions, Answers, Explanations, and Tags
+GET {{baseUrl}}/search?q=closure
+Authorization: Bearer {{authToken}}
+
+### Search with Technology Filter
+GET {{baseUrl}}/search?q=useref&technology=react
+Authorization: Bearer {{authToken}}
+
+### ===================================================================
+### DASHBOARD ANALYTICS
+### ===================================================================
+
+### Get User Revision Dashboard Metrics
+GET {{baseUrl}}/dashboard
+Authorization: Bearer {{authToken}}
+
+### ===================================================================
+### ADMIN CONTENT MANAGEMENT & BULK IMPORT
+### ===================================================================
+
+### Create New Technology (Admin)
+POST {{baseUrl}}/admin/technologies
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "name": "GraphQL",
+  "description": "Query language for APIs and runtime for fulfilling queries",
+  "category": "backend",
+  "order": 22
+}
+
+### Create New Topic (Admin)
+POST {{baseUrl}}/admin/topics
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "technologyId": "{{techId}}",
+  "name": "Resolvers and Schema",
+  "description": "GraphQL type definitions and field resolvers"
+}
+
+### Publish / Archive Question (Admin)
+PATCH {{baseUrl}}/admin/questions/{{sampleQuestionId}}/archive
+Authorization: Bearer {{adminToken}}
+
+PATCH {{baseUrl}}/admin/questions/{{sampleQuestionId}}/publish
+Authorization: Bearer {{adminToken}}
+
+### Bulk Import Questions (Admin)
+### Supports name-to-ID resolution, duplicate prevention, and flexible schema
+POST {{baseUrl}}/admin/questions/import
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "questions": [
+    {
+      "technology": "React",
+      "topic": "Hooks",
+      "preparationLevels": ["Junior", "Intermediate"],
+      "difficulty": "medium",
+      "questionType": "Conceptual",
+      "question": "What is the purpose of useCallback in React?",
+      "answer": "useCallback returns a memoized version of the callback that only changes if one of the dependencies has changed, preventing unnecessary child re-renders.",
+      "importantPoints": [
+        "Useful when passing callbacks to optimized child components relying on reference equality (React.memo)",
+        "Overusing useCallback introduces overhead; do not wrap every function blindly"
+      ],
+      "codeExamples": [
+        {
+          "language": "javascript",
+          "title": "useCallback example",
+          "code": "const memoizedCallback = useCallback(() => { doSomething(a, b); }, [a, b]);"
+        }
+      ],
+      "interviewAnswer": "I use useCallback to preserve function reference identity between renders, primarily when passing callbacks to child components wrapped in React.memo or inside dependency arrays of useEffect.",
+      "interviewTips": [
+        "Explain that useCallback caches function instances while useMemo caches calculation results."
+      ],
+      "tags": ["react", "hooks", "usecallback", "performance"],
+      "isImportant": true,
+      "source": "ai-generated",
+      "status": "published"
+    }
+  ]
+}
+
+### Dry-Run Import Preview (Admin)
+### Validates and tests duplicates without writing to MongoDB
+POST {{baseUrl}}/admin/questions/import/preview
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "questions": [
+    {
+      "technology": "Docker",
+      "topic": "Containers",
+      "preparationLevels": ["Intermediate"],
+      "difficulty": "medium",
+      "questionType": "Practical",
+      "question": "What is the difference between an image and a container in Docker?",
+      "answer": "An image is an immutable template; a container is a running instance.",
+      "source": "ai-generated",
+      "status": "published"
+    },
+    {
+      "technology": "React",
+      "topic": "Hooks",
+      "question": "what is useMemo in React?",
+      "answer": "Duplicate question test"
+    }
+  ]
+}
+
+### Admin Question Review (List Drafts)
+GET {{baseUrl}}/admin/questions?status=draft
+Authorization: Bearer {{adminToken}}
+
+### Admin Question Review (Filter by Source)
+GET {{baseUrl}}/admin/questions?source=ai-generated&status=all
+Authorization: Bearer {{adminToken}}
+
+### Content Statistics (Admin)
+GET {{baseUrl}}/admin/content/stats
+Authorization: Bearer {{adminToken}}
+
+### Content Gap Analysis (Admin)
+GET {{baseUrl}}/admin/content/gaps
+Authorization: Bearer {{adminToken}}
