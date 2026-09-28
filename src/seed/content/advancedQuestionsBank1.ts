@@ -1,4 +1,4 @@
-import { SeedQuestion } from '../types';
+import { SeedQuestion } from './types';
 
 export const advancedQuestionsBank1Questions: SeedQuestion[] = [
   {

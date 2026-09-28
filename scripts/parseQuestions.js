@@ -47,7 +47,7 @@ files.forEach(({ file, topicSlug }) => {
   });
 });
 
-const output = `import { SeedQuestion } from '../types';
+const output = `import { SeedQuestion } from './types';
 
 export const advancedQuestionsBank1Questions: SeedQuestion[] = ${JSON.stringify(allQuestions, null, 2)};
 `;
