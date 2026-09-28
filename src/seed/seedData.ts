@@ -127,6 +127,13 @@ export const seedTechnologies: SeedTechnology[] = [
     description: 'Distributed version control system covering branching workflows, merging, rebasing, stash management, and collaborative git practices.',
     order: 10,
   },
+  {
+    name: 'Advanced Questions Bank - 1',
+    slug: 'advanced-questions-bank-1',
+    category: 'other',
+    description: 'Personal collection of advanced interview questions.',
+    order: 11,
+  },
 ];
 
 export const seedTopics: SeedTopic[] = [
@@ -249,6 +256,11 @@ export const seedTopics: SeedTopic[] = [
   { technologySlug: 'git', name: 'Stashing', slug: 'stashing', description: 'git stash, pop, apply, drop, and saving WIP changes cleanly.', order: 8 },
   { technologySlug: 'git', name: 'Reset & Revert', slug: 'reset-revert', description: 'git reset (soft, mixed, hard) vs git revert for undoing changes.', order: 9 },
   { technologySlug: 'git', name: 'Git Best Practices', slug: 'git-best-practices', description: 'Atomic commits, conventional commit format, .gitignore rules, and tags.', order: 10 },
+
+  // 11. Advanced Questions Bank - 1
+  { technologySlug: 'advanced-questions-bank-1', name: 'Questions 1-50', slug: 'advanced-questions-1-50', description: 'First 50 advanced questions.', order: 1 },
+  { technologySlug: 'advanced-questions-bank-1', name: 'Questions 51-100', slug: 'advanced-questions-51-100', description: 'Next 50 advanced questions.', order: 2 },
+  { technologySlug: 'advanced-questions-bank-1', name: 'Questions 101-126', slug: 'advanced-questions-101-126', description: 'Remaining advanced questions.', order: 3 },
 ];
 
 

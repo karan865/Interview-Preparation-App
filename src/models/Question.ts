@@ -39,6 +39,7 @@ export interface IQuestion extends Document {
   questionType: string;
   answer: string;
   explanation?: string;
+  explanationHindi?: string;
   analogy?: string;
   importantPoints: string[];
   codeExamples: ICodeExample[];
@@ -144,6 +145,11 @@ const QuestionSchema = new Schema<IQuestion>(
       trim: true,
     },
     explanation: {
+      type: String,
+      default: '',
+      trim: true,
+    },
+    explanationHindi: {
       type: String,
       default: '',
       trim: true,

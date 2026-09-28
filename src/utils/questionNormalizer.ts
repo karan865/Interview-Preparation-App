@@ -8,7 +8,11 @@ export { normalizeQuestionType };
  */
 export const normalizeWhitespace = (text?: string | null): string => {
   if (!text) return '';
-  return text.toString().replace(/\s+/g, ' ').trim();
+  return text
+    .toString()
+    .replace(/[ \t]+/g, ' ') // Collapse multiple horizontal spaces/tabs into one
+    .replace(/\n\s*\n/g, '\n\n') // Collapse multiple empty lines into a single blank line
+    .trim();
 };
 
 /**
@@ -23,8 +27,10 @@ export const normalizeWhitespace = (text?: string | null): string => {
 export const createDuplicateKey = (text?: string | null): string => {
   if (!text) return '';
   return normalizeWhitespace(text)
+    .replace(/\n/g, ' ') // Strip newlines for duplicate detection
     .toLowerCase()
     .replace(/[?!.:;]+$/, '') // Remove trailing punctuation
+    .replace(/[ \t]+/g, ' ') // Re-collapse in case newline replacement created multiple spaces
     .trim();
 };
 

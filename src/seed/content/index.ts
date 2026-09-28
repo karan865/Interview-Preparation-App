@@ -9,6 +9,7 @@ import { nodeQuestions } from './node.questions';
 import { expressQuestions } from './express.questions';
 import { mongodbQuestions } from './mongodb.questions';
 import { sqlQuestions } from './sql.questions';
+import { advancedQuestionsBank1Questions } from './advancedQuestionsBank1';
 
 export * from './types';
 export * from './html.questions';
@@ -21,16 +22,8 @@ export * from './node.questions';
 export * from './express.questions';
 export * from './mongodb.questions';
 export * from './sql.questions';
+export * from './advancedQuestionsBank1';
 
 export const allSeedQuestions: SeedQuestion[] = [
-  ...javascriptQuestions, // 40
-  ...typescriptQuestions, // 35
-  ...reactQuestions,      // 40
-  ...htmlQuestions,       // 25
-  ...cssQuestions,        // 25
-  ...nodeQuestions,       // 35
-  ...expressQuestions,    // 30
-  ...mongodbQuestions,    // 35
-  ...sqlQuestions,        // 35
-  ...gitQuestions,        // 25
+  ...advancedQuestionsBank1Questions,
 ];

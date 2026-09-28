@@ -141,7 +141,7 @@ export class QuestionService {
         .populate('technologyId', 'name slug category icon')
         .populate('topicId', 'name slug')
         .populate('preparationLevels', 'name slug order')
-        .sort(params.search ? { score: { $meta: 'textScore' } } : { isImportant: -1, createdAt: -1 })
+        .sort(params.search ? { score: { $meta: 'textScore' } } : { isImportant: -1, createdAt: 1 })
         .skip(skip)
         .limit(limit)
         .lean(),

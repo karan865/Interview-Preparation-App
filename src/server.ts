@@ -15,12 +15,6 @@ const startServer = async () => {
       if (techCount === 0) {
         console.log('[Server] Database is empty. Running initial content seeder...');
         await runSeeder(false);
-      } else {
-        const mcqCount = await Question.countDocuments({ 'mcq.enabled': true });
-        if (mcqCount < 250) {
-          console.log('[Server] Seeding/updating curated interview MCQs in database...');
-          await seedOrUpdateMCQs();
-        }
       }
     } catch (seedErr: any) {
       console.warn('[Server] Initial seeding notice (server will continue starting):', seedErr.message);

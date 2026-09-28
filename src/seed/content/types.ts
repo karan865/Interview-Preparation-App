@@ -9,6 +9,7 @@ export interface SeedQuestion {
   title?: string;
   answer: string;
   explanation?: string;
+  explanationHindi?: string;
   analogy?: string;
   importantPoints?: string[];
   codeExamples?: {

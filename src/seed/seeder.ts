@@ -157,6 +157,7 @@ export const runSeeder = async (options: SeederOptions | boolean = true) => {
         questionType: q.questionType,
         answer: normalizeWhitespace(q.answer),
         explanation: q.explanation ? normalizeWhitespace(q.explanation) : undefined,
+        explanationHindi: q.explanationHindi ? normalizeWhitespace(q.explanationHindi) : undefined,
         analogy: q.analogy ? normalizeWhitespace(q.analogy) : undefined,
         importantPoints: q.importantPoints || [],
         codeExamples: q.codeExamples || [],
@@ -196,13 +197,7 @@ export const runSeeder = async (options: SeederOptions | boolean = true) => {
     console.log(`Total        |    100 | ${String(insertedQuestionCount).padStart(9, ' ')}`);
     console.log(`==================================================\n`);
 
-    // 6.5. Seed / update curated Interview MCQs
-    try {
-      const mcqStats = await seedOrUpdateMCQs();
-      console.log(`[Seeder] Seeded/Updated ${mcqStats.created + mcqStats.updated} MCQs (${mcqStats.created} created, ${mcqStats.updated} updated).`);
-    } catch (mcqErr: any) {
-      console.warn(`[Seeder] Warning during MCQ seeding (non-fatal): ${mcqErr.message}`);
-    }
+    // MCQ Seeding removed
 
     if (opts.reset) {
       console.log(`[Seeder] Reset successfully executed. Deleted ${deletedTechCount} techs, ${deletedTopicCount} topics, ${deletedQuestionCount} questions.`);
