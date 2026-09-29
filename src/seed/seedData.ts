@@ -134,6 +134,20 @@ export const seedTechnologies: SeedTechnology[] = [
     description: 'Personal collection of advanced interview questions.',
     order: 11,
   },
+  {
+    name: 'Advanced Questions Bank - 2',
+    slug: 'advanced-questions-bank-2',
+    category: 'other',
+    description: 'Second collection of advanced interview questions.',
+    order: 12,
+  },
+  {
+    name: 'Advanced Questions Bank - 3',
+    slug: 'advanced-questions-bank-3',
+    category: 'other',
+    description: 'Third collection of advanced interview questions.',
+    order: 13,
+  },
 ];
 
 export const seedTopics: SeedTopic[] = [
@@ -261,6 +275,19 @@ export const seedTopics: SeedTopic[] = [
   { technologySlug: 'advanced-questions-bank-1', name: 'Questions 1-50', slug: 'advanced-questions-1-50', description: 'First 50 advanced questions.', order: 1 },
   { technologySlug: 'advanced-questions-bank-1', name: 'Questions 51-100', slug: 'advanced-questions-51-100', description: 'Next 50 advanced questions.', order: 2 },
   { technologySlug: 'advanced-questions-bank-1', name: 'Questions 101-126', slug: 'advanced-questions-101-126', description: 'Remaining advanced questions.', order: 3 },
+
+  // 12. Advanced Questions Bank - 2
+  { technologySlug: 'advanced-questions-bank-2', name: 'Node.js 1-20', slug: 'nodejs-advanced-1-20', description: 'Node.js advanced questions 1-20.', order: 1 },
+  { technologySlug: 'advanced-questions-bank-2', name: 'Node.js 21-40', slug: 'nodejs-advanced-21-40', description: 'Node.js advanced questions 21-40.', order: 2 },
+  { technologySlug: 'advanced-questions-bank-2', name: 'Node.js 41-60', slug: 'nodejs-advanced-41-60', description: 'Node.js advanced questions 41-60.', order: 3 },
+  { technologySlug: 'advanced-questions-bank-2', name: 'Node.js 61-71', slug: 'nodejs-advanced-61-71', description: 'Node.js advanced questions 61-71.', order: 4 },
+  { technologySlug: 'advanced-questions-bank-2', name: 'React 1-20', slug: 'react-advanced-1-20', description: 'React advanced questions 1-20.', order: 5 },
+  { technologySlug: 'advanced-questions-bank-2', name: 'React 21-40', slug: 'react-advanced-21-40', description: 'React advanced questions 21-40.', order: 6 },
+  { technologySlug: 'advanced-questions-bank-2', name: 'React 41-60', slug: 'react-advanced-41-60', description: 'React advanced questions 41-60.', order: 7 },
+  { technologySlug: 'advanced-questions-bank-2', name: 'React 61-71', slug: 'react-advanced-61-71', description: 'React advanced questions 61-71.', order: 8 },
+
+  // 13. Advanced Questions Bank - 3
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 1-15', slug: 'advanced-questions-3-batch-1', description: 'Advanced questions 1-15.', order: 1 },
 ];
 
 

@@ -10,6 +10,8 @@ import { expressQuestions } from './express.questions';
 import { mongodbQuestions } from './mongodb.questions';
 import { sqlQuestions } from './sql.questions';
 import { advancedQuestionsBank1Questions } from './advancedQuestionsBank1';
+import { advancedQuestionsBank2Questions } from './advancedQuestionsBank2';
+import { advancedQuestionsBank3Questions } from './advancedQuestionsBank3';
 
 export * from './types';
 export * from './html.questions';
@@ -23,7 +25,11 @@ export * from './express.questions';
 export * from './mongodb.questions';
 export * from './sql.questions';
 export * from './advancedQuestionsBank1';
+export * from './advancedQuestionsBank2';
+export * from './advancedQuestionsBank3';
 
 export const allSeedQuestions: SeedQuestion[] = [
   ...advancedQuestionsBank1Questions,
+  ...advancedQuestionsBank2Questions,
+  ...advancedQuestionsBank3Questions,
 ];
