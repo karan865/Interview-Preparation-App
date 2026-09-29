@@ -4,8 +4,8 @@ export const advancedQuestionsBank3Questions: SeedQuestion[] = [
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What is the difference between Shallow Copy and Deep Copy?`,
-    slug: 'what-is-the-difference-between-shallow-copy-and-deep-copy',
+    question: `1. What is the difference between Shallow Copy and Deep Copy?`,
+    slug: '1-what-is-the-difference-between-shallow-copy-and-deep-copy',
     answer: `### Shallow Copy
 
 Example:
@@ -158,8 +158,8 @@ Shallow copy mein outer object new hota hai, lekin nested references share ho sa
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What is the Event Loop?`,
-    slug: 'what-is-the-event-loop',
+    question: `2. What is the Event Loop?`,
+    slug: '2-what-is-the-event-loop',
     answer: `The event loop manages asynchronous operations.
 
 It manages/decides when asynchronous code runs.`,
@@ -308,8 +308,8 @@ Event Loop Call Stack, asynchronous operations aur queues ko coordinate karta ha
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What is the difference between \`useState()\` and \`useReducer()\`?`,
-    slug: 'what-is-the-difference-between-usestate-and-usereducer',
+    question: `3. What is the difference between \`useState()\` and \`useReducer()\`?`,
+    slug: '3-what-is-the-difference-between-usestate-and-usereducer',
     answer: `useState() -> use for Primitive type = number, string, Boolean
     -> manage one or two State Variable
     -> use for local component state
@@ -453,8 +453,8 @@ Important interview point: \`useReducer()\` khud se global state nahi banata. Gl
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What are prototypes in JavaScript?`,
-    slug: 'what-are-prototypes-in-javascript',
+    question: `4. What are prototypes in JavaScript?`,
+    slug: '4-what-are-prototypes-in-javascript',
     answer: `In JS, every object has an internal link to another object called its prototype.
 
 This prototype is used for inheritance. If we try to access a property or method on an object and it is not found, JavaScript looks for it in the prototype chain.
@@ -589,8 +589,8 @@ Prototype JavaScript mein inheritance ka mechanism hai. Property object mein nah
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What are clusters in Node.js?`,
-    slug: 'what-are-clusters-in-nodejs',
+    question: `5. What are clusters in Node.js?`,
+    slug: '5-what-are-clusters-in-nodejs',
     answer: `In Node.js, clusters are used to take advantage of multi-core processors by running multiple worker processes that share the same server port.
 
 By default, a Node.js application runs in a single thread, which means it can only use one CPU core at a time.
@@ -714,8 +714,8 @@ CPU-heavy JavaScript calculation ke liye worker threads often more suitable hote
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What are Worker Threads and Processes in Node.js?`,
-    slug: 'what-are-worker-threads-and-processes-in-nodejs',
+    question: `6. What are Worker Threads and Processes in Node.js?`,
+    slug: '6-what-are-worker-threads-and-processes-in-nodejs',
     answer: `The notes explain worker threads and processes using CPU cores and the event loop.
 
 A Node.js process has an event loop. Worker threads can be used for CPU-intensive work in parallel without blocking the event loop using multiple threads inside a process.
@@ -816,8 +816,8 @@ CPU-heavy JavaScript work ke liye Worker Threads useful hain, jabki external pro
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What is a Child Process in Node.js?`,
-    slug: 'what-is-a-child-process-in-nodejs',
+    question: `7. What is a Child Process in Node.js?`,
+    slug: '7-what-is-a-child-process-in-nodejs',
     answer: `A child process in Node.js allows us to run other programs or scripts from our application.
 
 They run in separate processes with their own memory and communicate with the parent via IPC.
@@ -935,8 +935,8 @@ Child Process separate process create karke external commands, scripts ya Node.j
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What is a Web Worker?`,
-    slug: 'what-is-a-web-worker',
+    question: `8. What is a Web Worker?`,
+    slug: '8-what-is-a-web-worker',
     answer: `A web worker is a feature in browser/client-side JS that allows you to run JavaScript code in the background on a separate thread, without the main/UI thread.`,
     explanation: `A **Web Worker** is a browser feature that allows JavaScript to run in a background thread instead of the browser's main UI thread.
 
@@ -1020,8 +1020,8 @@ Important: Web Worker normally directly DOM manipulate nahi karta. Ye mainly bac
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What are React Portals?`,
-    slug: 'what-are-react-portals',
+    question: `9. What are React Portals?`,
+    slug: '9-what-are-react-portals',
     answer: `A React portal is a way to render a component's HTML outside its parent element in the DOM, while still keeping it part of the same React tree.
 
 The notes explain that portals are useful when you want to render something outside the normal parent DOM location.`,
@@ -1113,8 +1113,8 @@ Important interview point: DOM mein component ki location alag ho sakti hai, lek
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What are Side Effects in React?`,
-    slug: 'what-are-side-effects-in-react',
+    question: `10. What are Side Effects in React?`,
+    slug: '10-what-are-side-effects-in-react',
     answer: `Side effects in React are operations that are not related only to rendering UI.
 
 Examples mentioned in the notes:
@@ -1229,8 +1229,8 @@ Side effect React ke pure rendering ke bahar ka external work hai. \`useEffect()
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What are React Web Workers?`,
-    slug: 'what-are-react-web-workers',
+    question: `11. What are React Web Workers?`,
+    slug: '11-what-are-react-web-workers',
     answer: `A React Web Worker is just a normal web worker used inside a React app to run heavy logic (math, data processing, crypto etc.) outside the main UI thread.
 
 The notes explain that React + background worker can be used for heavy tasks because the worker runs in the background.`,
@@ -1339,8 +1339,8 @@ Important interview point: React UI main thread par run hoti hai; Web Worker hea
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What is Express Session? Explain Token vs Session Authentication.`,
-    slug: 'what-is-express-session-explain-token-vs-session-authentication',
+    question: `12. What is Express Session? Explain Token vs Session Authentication.`,
+    slug: '12-what-is-express-session-explain-token-vs-session-authentication',
     answer: `## Session Authentication — Stateful Authentication
 
 Flow shown in the notes:
@@ -1511,8 +1511,8 @@ Security depends on implementation. Neither approach is automatically secure or 
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What is \`Object.create()\`?`,
-    slug: 'what-is-objectcreate',
+    question: `13. What is \`Object.create()\`?`,
+    slug: '13-what-is-objectcreate',
     answer: `\`Object.create()\` makes a new object with another object as its prototype, so it can reuse the prototype's properties and methods.
 
 Example:
@@ -1614,8 +1614,8 @@ Important: \`Object.create()\` source object ka copy/clone nahi banata. Ye new o
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `What is the difference between Encoding/Decoding and Encryption/Decryption?`,
-    slug: 'what-is-the-difference-between-encodingdecoding-and-encryptiondecryption',
+    question: `14. What is the difference between Encoding/Decoding and Encryption/Decryption?`,
+    slug: '14-what-is-the-difference-between-encodingdecoding-and-encryptiondecryption',
     answer: `### Encoding / Decoding
 
 Used to convert data into a different format for transmission, not for security.
@@ -1690,8 +1690,8 @@ For example, HTTPS/TLS uses cryptographic mechanisms to protect communication in
   {
     technologySlug: 'advanced-questions-bank-3',
     topicSlug: 'advanced-questions-3-batch-1',
-    question: `Explain the HTTP Status Code Categories.`,
-    slug: 'explain-the-http-status-code-categories',
+    question: `15. Explain the HTTP Status Code Categories.`,
+    slug: '15-explain-the-http-status-code-categories',
     answer: `The notes divide HTTP status codes into five categories:
 
 1. **100 — Informational**

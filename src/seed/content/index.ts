@@ -29,6 +29,8 @@ export * from './advancedQuestionsBank2';
 export * from './advancedQuestionsBank3';
 
 export const allSeedQuestions: SeedQuestion[] = [
+  ...reactQuestions,
+  ...nodeQuestions,
   ...advancedQuestionsBank1Questions,
   ...advancedQuestionsBank2Questions,
   ...advancedQuestionsBank3Questions,
