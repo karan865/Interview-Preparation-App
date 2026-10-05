@@ -197,7 +197,10 @@ export const runSeeder = async (options: SeederOptions | boolean = true) => {
     console.log(`Total        |    100 | ${String(insertedQuestionCount).padStart(9, ' ')}`);
     console.log(`==================================================\n`);
 
-    // MCQ Seeding removed
+    // 8. Seed MCQs
+    console.log(`[Seeder] Starting MCQ content seeding...`);
+    const mcqResult = await seedOrUpdateMCQs();
+    console.log(`[Seeder] MCQ Seeding complete: ${mcqResult.created} created, ${mcqResult.updated} updated.`);
 
     if (opts.reset) {
       console.log(`[Seeder] Reset successfully executed. Deleted ${deletedTechCount} techs, ${deletedTopicCount} topics, ${deletedQuestionCount} questions.`);

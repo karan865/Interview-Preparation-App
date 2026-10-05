@@ -12,7 +12,7 @@ function generateSlug(text) {
     .replace(/^-+|-+$/g, '');
 }
 
-const files = fs.readdirSync(inputDir).filter(f => f.endsWith('.md'));
+const files = fs.readdirSync(inputDir).filter(f => f.endsWith('.md') && f !== 'All_Questions_Only.md');
 
 let allQuestions = [];
 let globalIndex = 0;

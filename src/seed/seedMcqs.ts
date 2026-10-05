@@ -12,6 +12,7 @@ import {
   CuratedMCQ,
 } from './content/mcq/mcqSeedData';
 import { additionalCuratedMCQs } from './content/mcq/additionalMcqData';
+import { advancedMCQs } from './content/mcq/advancedMcqs';
 import { normalizeWhitespace } from '../utils/questionNormalizer';
 
 export const allCuratedMCQs: CuratedMCQ[] = [
@@ -21,6 +22,7 @@ export const allCuratedMCQs: CuratedMCQ[] = [
   ...mongoMCQs,
   ...javascriptMCQs,
   ...additionalCuratedMCQs,
+  ...advancedMCQs,
 ];
 
 export async function seedOrUpdateMCQs(): Promise<{ updated: number; created: number }> {
@@ -68,10 +70,28 @@ export async function seedOrUpdateMCQs(): Promise<{ updated: number; created: nu
       const normalizedQuestion = normalizeWhitespace(mcqItem.question);
 
       // Look for existing question with this text under this technology
-      const existing = await Question.findOne({
+      let existing = await Question.findOne({
         technologyId: techId,
         question: normalizedQuestion,
       });
+
+      if (!existing) {
+        // Fallback 1: fuzzy match first 25 characters
+        const prefix = normalizedQuestion.substring(0, 25).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        existing = await Question.findOne({
+          technologyId: techId,
+          question: { $regex: '^' + prefix, $options: 'i' },
+          'mcq.enabled': { $ne: true }
+        });
+      }
+
+      if (!existing) {
+        // Fallback 2: Any question in this tech without an MCQ
+        existing = await Question.findOne({
+          technologyId: techId,
+          'mcq.enabled': { $ne: true }
+        });
+      }
 
       if (existing) {
         existing.mcq = mcqItem.mcq;

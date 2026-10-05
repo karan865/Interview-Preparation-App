@@ -288,6 +288,17 @@ export const seedTopics: SeedTopic[] = [
 
   // 13. Advanced Questions Bank - 3
   { technologySlug: 'advanced-questions-bank-3', name: 'Questions 1-15', slug: 'advanced-questions-3-batch-1', description: 'Advanced questions 1-15.', order: 1 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 16-30', slug: 'advanced-questions-3-batch-2', description: 'Advanced questions 16-30.', order: 2 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 31-45', slug: 'advanced-questions-3-batch-3', description: 'Advanced questions 31-45.', order: 3 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 46-60', slug: 'advanced-questions-3-batch-4', description: 'Advanced questions 46-60.', order: 4 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 61-75', slug: 'advanced-questions-3-batch-5', description: 'Advanced questions 61-75.', order: 5 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 76-90', slug: 'advanced-questions-3-batch-6', description: 'Advanced questions 76-90.', order: 6 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 91-105', slug: 'advanced-questions-3-batch-7', description: 'Advanced questions 91-105.', order: 7 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 106-120', slug: 'advanced-questions-3-batch-8', description: 'Advanced questions 106-120.', order: 8 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 121-135', slug: 'advanced-questions-3-batch-9', description: 'Advanced questions 121-135.', order: 9 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 136-150', slug: 'advanced-questions-3-batch-10', description: 'Advanced questions 136-150.', order: 10 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 151-165', slug: 'advanced-questions-3-batch-11', description: 'Advanced questions 151-165.', order: 11 },
+  { technologySlug: 'advanced-questions-bank-3', name: 'Questions 166-180', slug: 'advanced-questions-3-batch-12', description: 'Advanced questions 166-180.', order: 12 },
 ];
 
 
