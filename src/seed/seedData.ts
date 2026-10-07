@@ -148,6 +148,13 @@ export const seedTechnologies: SeedTechnology[] = [
     description: 'Third collection of advanced interview questions.',
     order: 13,
   },
+  {
+    name: 'MCQ Questions',
+    slug: 'mcq-questions',
+    category: 'other',
+    description: 'A dedicated collection of all MCQ questions for practice.',
+    order: 14,
+  },
 ];
 
 export const seedTopics: SeedTopic[] = [
@@ -299,6 +306,13 @@ export const seedTopics: SeedTopic[] = [
   { technologySlug: 'advanced-questions-bank-3', name: 'Questions 136-150', slug: 'advanced-questions-3-batch-10', description: 'Advanced questions 136-150.', order: 10 },
   { technologySlug: 'advanced-questions-bank-3', name: 'Questions 151-165', slug: 'advanced-questions-3-batch-11', description: 'Advanced questions 151-165.', order: 11 },
   { technologySlug: 'advanced-questions-bank-3', name: 'Questions 166-180', slug: 'advanced-questions-3-batch-12', description: 'Advanced questions 166-180.', order: 12 },
+
+  // 14. MCQ Questions
+  { technologySlug: 'mcq-questions', name: 'Node.js', slug: 'mcq-nodejs', description: 'Node.js MCQ Questions', order: 1 },
+  { technologySlug: 'mcq-questions', name: 'React', slug: 'mcq-react', description: 'React MCQ Questions', order: 2 },
+  { technologySlug: 'mcq-questions', name: 'Advanced Bank 1', slug: 'mcq-advanced-1', description: 'Advanced Questions Bank 1', order: 3 },
+  { technologySlug: 'mcq-questions', name: 'Advanced Bank 2', slug: 'mcq-advanced-2', description: 'Advanced Questions Bank 2', order: 4 },
+  { technologySlug: 'mcq-questions', name: 'Advanced Bank 3', slug: 'mcq-advanced-3', description: 'Advanced Questions Bank 3', order: 5 },
 ];
 
 

@@ -67,6 +67,8 @@ export class DailyChallengeService {
     const rawTestCount = Number(options.testCount);
     const testCount = [10, 20, 30].includes(rawTestCount) ? rawTestCount : 10;
 
+    // Forcefully use ONLY the new MCQ questions as requested
+    options.technologies = ['mcq-questions'];
     const requestedTechs = this.parseList(options.technologies);
     const excludedIds = new Set(this.parseList(options.excludeIds));
 
@@ -241,6 +243,9 @@ export class DailyChallengeService {
   static async getRetryTestQuestions(options: RetryTestOptions) {
     const rawCount = Number(options.count);
     const count = [10, 20, 30].includes(rawCount) ? rawCount : 10;
+
+    // Forcefully use ONLY the new MCQ questions as requested
+    options.technologies = ['mcq-questions'];
     const requestedTechs = this.parseList(options.technologies);
     const excludedIds = new Set(this.parseList(options.excludeIds));
 
