@@ -35,4 +35,35 @@ export class ProgressController {
       next(error);
     }
   }
+
+  static async toggleSave(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { questionId } = req.params;
+      const { isSaved } = req.body;
+      const userId = req.user!._id.toString();
+
+      const progress = await ProgressService.toggleSave(userId, questionId, isSaved);
+      return sendSuccess({
+        res,
+        data: {
+          questionId: progress.questionId,
+          isSaved: progress.isSaved,
+        },
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async getSavedQuestions(req: Request, res: Response, next: NextFunction) {
+    try {
+      const userId = req.user!._id.toString();
+      const queryParams = req.query as { page?: string; limit?: string };
+
+      const result = await ProgressService.getSavedQuestions(userId, queryParams);
+      return sendSuccess({ res, data: result });
+    } catch (error) {
+      next(error);
+    }
+  }
 }

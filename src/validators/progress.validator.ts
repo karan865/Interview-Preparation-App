@@ -15,6 +15,15 @@ export const questionIdParamSchema = z.object({
   }),
 });
 
+export const toggleSaveSchema = z.object({
+  body: z.object({
+    isSaved: z.boolean().optional(),
+  }),
+  params: z.object({
+    questionId: z.string().min(1, 'Question ID parameter is required'),
+  }),
+});
+
 export const revisionFilterSchema = z.object({
   query: z.object({
     technology: z.string().optional(),

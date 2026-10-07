@@ -76,19 +76,11 @@ export async function seedOrUpdateMCQs(): Promise<{ updated: number; created: nu
       });
 
       if (!existing) {
-        // Fallback 1: fuzzy match first 25 characters
-        const prefix = normalizedQuestion.substring(0, 25).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        // Fallback 1: match ignoring leading numbers and trailing spaces
+        const cleanQuestion = normalizedQuestion.replace(/^[\d\.\s]+/, '').substring(0, 100).replace(/[.*+?^${}()|[\\]\\\]/g, '\\\$&');
         existing = await Question.findOne({
           technologyId: techId,
-          question: { $regex: '^' + prefix, $options: 'i' },
-          'mcq.enabled': { $ne: true }
-        });
-      }
-
-      if (!existing) {
-        // Fallback 2: Any question in this tech without an MCQ
-        existing = await Question.findOne({
-          technologyId: techId,
+          question: { $regex: cleanQuestion, $options: 'i' },
           'mcq.enabled': { $ne: true }
         });
       }
@@ -140,3 +132,4 @@ if (require.main === module) {
       process.exit(1);
     });
 }
+
